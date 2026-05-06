@@ -67,8 +67,5 @@ PYTANGO_SKIP_HMI_TEST=1 ./venv/bin/python verify_system.py
 - [verify_system.py](verify_system.py) - End-to-end verification without the full TANGO service.
 - [start_project.sh](start_project.sh) and [stop_project.sh](stop_project.sh) - Start and stop scripts.
 
-## Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md).
-
 ## License
 MIT. See [LICENSE](LICENSE).

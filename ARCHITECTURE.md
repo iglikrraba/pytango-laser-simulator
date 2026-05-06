@@ -3,12 +3,6 @@
 ## Overview
 This project implements a small three-tier control stack around a simulated laser diagnostic device. The simulator models a Gaussian beam and exposes a simple TCP protocol. The PyTango device server adapts that protocol into attributes and commands, and the HMI renders the beam in real time.
 
-```
-Simulated Hardware (TCP) <-> PyTango Device Server <-> HMI (PyQt5)
-             |                          |
-             +-------- TANGO DB --------+
-```
-
 ## Components
 
 ### Hardware simulator
