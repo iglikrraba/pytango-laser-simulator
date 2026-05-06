@@ -1,0 +1,25 @@
+services:
+  tangodb:
+    image: cpascual/tango-db:latest
+    container_name: tangodb
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=tango
+    restart: unless-stopped
+
+  databaseds:
+    image: cpascual/tango-cpp:latest
+    container_name: databaseds
+    depends_on:
+      - tangodb
+    environment:
+      - TANGO_HOST=databaseds:10000
+      - MYSQL_HOST=tangodb
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
+      - MYSQL_DB=tango
+    command: ["/usr/local/bin/DataBaseds", "2", "-ORBendPoint", "giop:tcp::10000", "-v4"]
+    ports:
+      - "10000:10000"
+    restart: unless-stopped
